@@ -42,22 +42,27 @@ npm install
 npm run client
 ```
 
-### 5. Start backend, database, and Ollama services
+### 5. Start database and Ollama services
 ```bash
-docker compose up
+docker compose up -d database ollama
 ```
 
-### 6. Pull embedding model (Ollama)
+### 6. Pull embedding model (first run only)
 ```bash
 docker exec ollama ollama pull nomic-embed-text
 ```
 
-### 7. Seed database
+### 7. Start backend
+```bash
+docker compose up -d backend
+```
+
+### 8. Seed database
 ```bash
 docker exec backend_server node apps/backend/util/databaseSetup.js <n>
 ```
-- `<n>` = number of entries pulled from AniList
 
+- `<n>` = number of AniList entries to ingest
 ---
 
 ## Environment Variables
@@ -78,6 +83,11 @@ GROQ_API_KEY=key
 HF_API_KEY=key
 OLLAMA_URL=http://ollama:11434
 QDRANT_DATABASE_URL=http://database:6333
+```
+
+### Frontent `.env` (apps/frontend/.env)
+```env
+VITE_SERVER_PORT=9000
 ```
 
 ---
