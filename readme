@@ -1,0 +1,2 @@
+docker exec  backend_server node apps/backend/util/databaseSetup.js
+docker exec ollama ollama pull nomic-embed-text

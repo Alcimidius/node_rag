@@ -5,7 +5,7 @@ import { ref, nextTick} from 'vue';
 
 import chatbubble from '@/components/chatbubble.vue';
 
-const url = "http://127.0.0.1:10000/chat"
+const url =  `http://localhost:${import.meta.env.VITE_SERVER_PORT}/chat `
 
 const loadingContersationItem: ConversationItem = {
     userType: "System",

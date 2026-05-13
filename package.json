@@ -6,8 +6,8 @@
         "packages/*"
     ],
     "scripts": {
-        "db:setup": "node apps/backend/util/databaseSetup.js",
-        "server": "node --watch --env-file=.env apps/backend/server.js",
+        "db:setup": "node --env-file=./apps/backend/.env apps/backend/util/databaseSetup.js",
+        "server": "node --env-file=./apps/backend/.env apps/backend/server.js",
         "client": "npm run dev -w apps/frontend",
         "lint": "eslint packages/"
     },

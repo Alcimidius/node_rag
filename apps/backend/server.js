@@ -6,16 +6,15 @@ import cors from "cors";
 
 
 
-const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
+const port = process.env.SERVER_PORT;
+const hostname = "localhost";
 const app = express();
 
 
 
 app.use(cors({
-    origin: process.env.CLIENT_HOSTNAME
-}));
-
+    origin: true
+}))
 app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -46,5 +45,5 @@ app.get("/",(req,res,next) => {
 });
 
 
-app.listen(port, hostname, () => console.log("server on http://" + hostname +":"+ port));
+app.listen(port, () => console.log("server on http://" + hostname +":"+ port));
 

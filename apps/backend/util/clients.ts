@@ -14,7 +14,7 @@ const GroqClient = new InferenceClient(process.env.GROQ_API_KEY);
 
 const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings, {
     url: process.env.QDRANT_DATABASE_URL,
-    collectionName: process.env.QDRANT_COLLECTION_NAME,
+    collectionName: "ANIME",
 });
 
 

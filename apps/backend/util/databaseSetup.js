@@ -1,9 +1,13 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import { Document } from "@langchain/core/documents";
 import { fetchN } from './apiFetch.ts';
 import { vectorStore } from "./clients.ts";
+
+const nArg = process.argv[2];
+const n = nArg ? Number(nArg) : 10;
+
+if (Number.isNaN(n) || n <= 0) {
+    throw new Error(`Invalid N value: ${nArg}`);
+}
 
 function buildDocString(media) {
     return `Genres: ${media.genres.join(", ")} Tags: ${media.tags.join(", ")} Description: ${media.description}`;
@@ -55,7 +59,7 @@ async function upsertBatch(mediaList, batchSize = 10) {
 
 try {
     console.log("fetching:");
-    const data = await fetchN("ANIME", 10);
+    const data = await fetchN("ANIME", n);
     console.log("seeding:");
     await upsertBatch(data);
     console.log("db setup done");

@@ -129,9 +129,8 @@ For anything else (greetings, etc.) just respond normally.`
         conversationHistory.push({ role: "assistant", content: message.content });
         return { msg: message.content };
     }catch(err){
-
-        conversationHistory.pop();
-
+        conversationHistory.push({ role: "system", content: err.message });
+        throw(err);
     }
     
 }
