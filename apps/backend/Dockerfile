@@ -1,4 +1,4 @@
-# docker build -f apps/backend/Dockerfile . -t backend:1.0.1
+# docker build -f apps/backend/Dockerfile . -t backend:1.0.2
 
 ARG NODE_VERSION=24.14.1
 

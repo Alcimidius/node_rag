@@ -31,9 +31,9 @@ app.post("/chat", async (req,res)=> {
     }catch(err){
         console.log(err)
 
-        res.status(500);
+        res.status(err.code);
         res.json({
-            msg: "response error"
+            msg: err.message
         });
     }
      
