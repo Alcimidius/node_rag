@@ -27,27 +27,32 @@ Data is sourced from the AniList GraphQL API and stored in Qdrant as a vector da
 git clone https://github.com/Alcimidius/node_rag.git
 ```
 
-### 2. Install dependencies
+### 2. cd node_rag
+```bash
+cd node_rag
+```
+
+### 3. Install dependencies
 ```bash
 npm install
 ```
 
-### 3. Start frontend
+### 4. Start frontend
 ```bash
 npm run client
 ```
 
-### 4. Start backend, database, and Ollama services
+### 5. Start backend, database, and Ollama services
 ```bash
 docker compose up
 ```
 
-### 5. Pull embedding model (Ollama)
+### 6. Pull embedding model (Ollama)
 ```bash
 docker exec ollama ollama pull nomic-embed-text
 ```
 
-### 6. Seed database
+### 7. Seed database
 ```bash
 docker exec backend_server node apps/backend/util/databaseSetup.js <n>
 ```
