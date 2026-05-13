@@ -4,7 +4,9 @@ services:
     image: backend:1.0.2
     pull_policy: never
     container_name: backend_server
-    build: ./apps/backend/Dockerfile
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
     ports:
       - "9000:9000"
     env_file:

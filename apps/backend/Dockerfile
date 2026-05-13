@@ -11,7 +11,7 @@ COPY apps/backend/package.json ./apps/backend/
 
 RUN npm ci --omit=dev
 
-COPY apps/backend ./apps/backend
+COPY apps/backend/ ./apps/backend/
 
 FROM node:${NODE_VERSION}-alpine AS run
 
